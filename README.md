@@ -15,7 +15,7 @@ Getting started
       Callback URL can be a made up one as Opauth will explicitly provide the correct one as part of the OAuth process.   
    - Register your domains at @Anywhere domains.  
 	   Twitter only allows authentication from authorized domains.
-	
+
 3. Configure Opauth-Twitter strategy with at least `Consumer key` and `Consumer secret`.
 
 4. Direct user to `http://path_to_opauth/twitter` to authenticate
@@ -56,3 +56,4 @@ Copyright © 2012 U-Zyn Chua (http://uzyn.com)
 tmhOAuth is [Apache 2 licensed](https://github.com/themattharris/tmhOAuth/blob/master/LICENSE).
 
 [1]: https://github.com/uzyn/opauth
+[2]: https://twittercommunity.com/t/how-to-get-user-email-after-app-is-whitelisted-to-request-email-address/62495/3
