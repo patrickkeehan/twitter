@@ -95,7 +95,7 @@ class TwitterStrategy extends OpauthStrategy {
 
 			// Delete the cookies - we're done with them
 			setcookie("oauth_token", $results['oauth_token'], time() - 300);
-			setcookie("oauth_token_secret", $results['oauth_token'], time() - 300);
+			setcookie("oauth_token_secret", $results['oauth_token_secret'], time() - 300);
 
 			$params = array(
 				'oauth_verifier' => $_REQUEST['oauth_verifier']
