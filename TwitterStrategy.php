@@ -76,10 +76,12 @@ class TwitterStrategy extends OpauthStrategy {
 		$results =  $this->_request('POST', $this->strategy['request_token_url'], $params);
 
 		if ($results !== false && !empty($results['oauth_token']) && !empty($results['oauth_token_secret'])){
-			if (!session_id()) {
-				session_start();
+
+			if ($this->strategy['storage'] == 'session')
+			{
+				if (!session_id()) session_start();
+				$_SESSION['_opauth_twitter'] = $results;
 			}
-			$_SESSION['_opauth_twitter'] = $results;
 
 			$this->_authorize($results['oauth_token']);
 		}
@@ -92,8 +94,12 @@ class TwitterStrategy extends OpauthStrategy {
 		if (!session_id()) {
 			session_start();
 		}
-		$session = $_SESSION['_opauth_twitter'];
-		unset($_SESSION['_opauth_twitter']);
+
+		if ($this->strategy['storage'] == 'session')
+		{
+			$session = $_SESSION['_opauth_twitter'];
+			unset($_SESSION['_opauth_twitter']);
+		}
 
 		error_log(print_r($_REQUEST, 1));
 		error_log(print_r($session, 1));
